@@ -12,7 +12,6 @@ import de.hsos.prog3.gbuccell.ab02.util.Interaktionsbrett;
 public class SpielfeldDarstellung {
 
     Interaktionsbrett ib;
-    Simulator simulator;
     static int SEITENLAENGE = 300;
     static int MARGIN = 30;
 
@@ -23,7 +22,7 @@ public class SpielfeldDarstellung {
     public void spielfeldDarstellen(boolean[][] spielfeld){
         int x = MARGIN;
         int y = MARGIN;
-        int seitenlaenge = SEITENLAENGE/(int)Math.sqrt(simulator.getAnzahlFelder());
+        int seitenlaenge = SEITENLAENGE/spielfeld.length;
         for(int i = 0; i < spielfeld.length; i++){
             for(int j = 0; j < spielfeld[i].length; j++){
                 Quadrat q = new Quadrat(x, y, seitenlaenge);
@@ -34,6 +33,7 @@ public class SpielfeldDarstellung {
                 }
                 x += seitenlaenge;
             }
+            x = MARGIN;
             y += seitenlaenge;
         }
     }

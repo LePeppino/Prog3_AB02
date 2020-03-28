@@ -15,12 +15,6 @@ public class Simulator implements Simulation {
 
     private BeiAenderung beiAenderung;
 
-    //Simulator-Objekt muss initialisiert werden, um auf Methoden anwendbar zu sein
-    public Simulator(int ersteDimension, int zweiteDimension, int anzahlFelder){
-        this.spielfeld = new boolean[ersteDimension][zweiteDimension];
-        this.anzahlFelder = anzahlFelder;
-    }
-
     public int getAnzahlFelder(){
         return anzahlFelder;
     }
@@ -28,14 +22,17 @@ public class Simulator implements Simulation {
 //Methoden
     @Override
     public void berechneAnfangsGeneration(int anzahlZellen, int wahrscheinlichkeitBesiedlung){
+        this.spielfeld = new boolean[(int)Math.sqrt(anzahlZellen)][(int)Math.sqrt(anzahlZellen)];
+        this.anzahlFelder = anzahlFelder;
         Random random = new Random();
         for(int i = 0; i < spielfeld.length; i++) {
             for (int j = 0; j < spielfeld[i].length; j++) {
                 int zufall = random.nextInt(100);
                 if(zufall < wahrscheinlichkeitBesiedlung){
                     spielfeld[i][j] = true;
+                }else {
+                    spielfeld[i][j] = false;
                 }
-                spielfeld[i][j] = false;
             }
         }
         beiAenderung.aktualisiere(spielfeld);
@@ -48,7 +45,7 @@ public class Simulator implements Simulation {
 
     @Override
     public void anmeldenFuerAktualisierungBeiAenderung(BeiAenderung beiAenderung){
-
+        this.beiAenderung = beiAenderung;
     }
 
 

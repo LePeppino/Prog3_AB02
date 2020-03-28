@@ -23,8 +23,6 @@ public class Steuerung implements BeiAenderung {
         int dimension = (int)Math.sqrt(anzahlZellen);
         int wahrscheinlichkeit = nutzerEingabe.wahrscheinlichkeitDerBesiedlung();
 
-        simulator = new Simulator(dimension, dimension, anzahlZellen);
-
         simulator.berechneAnfangsGeneration(anzahlZellen, wahrscheinlichkeit);
     }
 
@@ -33,6 +31,8 @@ public class Steuerung implements BeiAenderung {
         EinUndAusgabe io = new EinUndAusgabe();
         nutzerEingabe = new NutzerEingabe(io);
         spielfeldDarstellung = new SpielfeldDarstellung(ib);
+        simulator = new Simulator();
+        simulator.anmeldenFuerAktualisierungBeiAenderung(this);
     }
 
     @Override
