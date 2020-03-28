@@ -16,29 +16,32 @@ public class Quadrat {
     private void setX(int x){
         if(x >= 1) {
             this.x = x;
+        } else{
+            this.x = 0;
         }
-        this.x = 0;
     }
     private void setY(int y){
         if(y >= 1) {
             this.y = y;
+        } else{
+            this.y = 0;
         }
-        this.y = 0;
     }
     private void setSeitenlaenge(int seitenlaenge){
         if(seitenlaenge >= 1){
             this.seitenlaenge = seitenlaenge;
+        } else{
+            this.seitenlaenge = 0;
         }
-        this.seitenlaenge = 0;
     }
 
-    public void darstellenRahmen(Interaktionsbrett io){
-        io.neuesRechteck(x, y, seitenlaenge, seitenlaenge);
+    public void darstellenRahmen(Interaktionsbrett ib){
+        ib.neuesRechteck(x, y, seitenlaenge, seitenlaenge);
     }
-    public void darstellenFuellung(Interaktionsbrett io){
-        io.neuesRechteck(x, y, seitenlaenge, seitenlaenge);
-        for(int i = x; i < x + seitenlaenge; i++){
-            io.neueLinie(x, y, x, y + seitenlaenge);
+    public void darstellenFuellung(Interaktionsbrett ib){
+        ib.neuesRechteck(x, y, seitenlaenge, seitenlaenge);
+        for(int i = y + 1; i < y + seitenlaenge; i++){
+            ib.neueLinie(x, i, x + seitenlaenge, i);
         }
     }
 }
