@@ -6,6 +6,8 @@
 
 package de.hsos.prog3.gbuccell.ab02.logik;
 
+import java.util.Random;
+
 public class Simulator implements Simulation {
 
     private boolean[][] spielfeld;
@@ -13,24 +15,25 @@ public class Simulator implements Simulation {
 
     private BeiAenderung beiAenderung;
 
-//Setter, Getter, NÖTIG?
-    private void setSpielfeld(boolean[][] spielfeld){
-        this.spielfeld = spielfeld;
-    }
-    public boolean[][] getSpielfeld(){
-        return spielfeld;
-    }
-    private void setAnzahlFelder(int anzahlFelder){
-        this.anzahlFelder = anzahlFelder;
-    }
     public int getAnzahlFelder(){
         return anzahlFelder;
     }
 
 //Methoden
     @Override
-    public void berechneAnfangsGeneration(int anzahlDerZellen, int wahrscheinkeitDerBesiedlung){
-        //beiAenderung.aktualisiere();
+    public void berechneAnfangsGeneration(int anzahlZellen, int wahrscheinlichkeitBesiedlung){
+        boolean[][] spielfeld = new boolean[(int)Math.sqrt(anzahlZellen)][(int)Math.sqrt(anzahlZellen)];
+        Random random = new Random();
+        for(int i = 0; i < spielfeld.length; i++) {
+            for (int j = 0; j < spielfeld[i].length; j++) {
+                int zufall = random.nextInt();
+                if(zufall < wahrscheinlichkeitBesiedlung){
+                    spielfeld[i][j] = true;
+                }
+                spielfeld[i][j] = false;
+            }
+        }
+        beiAenderung.aktualisiere(spielfeld);
     }
 
     @Override
