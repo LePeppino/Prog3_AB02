@@ -1,3 +1,9 @@
+/*
+ * Titel: Programmieren 3, AB02
+ * Autor: Giuseppe Buccellato
+ * Semester: SoSe2020
+ */
+
 package de.hsos.prog3.gbuccell.ab02;
 
 import de.hsos.prog3.gbuccell.ab02.logik.Simulator;
@@ -11,11 +17,11 @@ public class Main {
 
         NutzerEingabe eingabe = new NutzerEingabe(new EinUndAusgabe());
         Interaktionsbrett ib = new Interaktionsbrett();
+        Simulator simulator();
 //        Quadrat q = new Quadrat(5, 5, 10);
 //        Quadrat q2 = new Quadrat(15, 5, 10);
 //        q.darstellenRahmen(ib);
 //        q2.darstellenFuellung(ib);
-//        Simulator simulator();
 //
 //        int spielfeld = eingabe.anzahlZellenDesSpielfelds();
 //        int wahrscheinlichkeit = eingabe.wahrscheinlichkeitDerBesiedlung();
