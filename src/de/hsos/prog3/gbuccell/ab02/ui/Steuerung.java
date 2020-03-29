@@ -42,6 +42,7 @@ public class Steuerung implements BeiAenderung {
 
     @Override
     public void aktualisiere(boolean[][] neu){
+        spielfeldDarstellung.abwischen();
         spielfeldDarstellung.spielfeldDarstellen(neu);
     }
 }
