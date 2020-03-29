@@ -17,13 +17,18 @@ public class Steuerung implements BeiAenderung {
     public Simulator simulator;
     public SpielfeldDarstellung spielfeldDarstellung;
 
-    public void startDesSpiels(){
+    public void startDesSpiels() throws InterruptedException {
         initialisierung();
         int anzahlZellen = nutzerEingabe.anzahlZellenDesSpielfelds();
-        int dimension = (int)Math.sqrt(anzahlZellen);
         int wahrscheinlichkeit = nutzerEingabe.wahrscheinlichkeitDerBesiedlung();
 
         simulator.berechneAnfangsGeneration(anzahlZellen, wahrscheinlichkeit);
+
+        int schritte = 0;
+        while(schritte >= 0){
+            schritte = nutzerEingabe.anzahlDerSimulationsschritte();
+            simulator.berechneFolgeGeneration(schritte);
+        }
     }
 
     private void initialisierung(){

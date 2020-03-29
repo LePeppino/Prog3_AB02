@@ -6,7 +6,6 @@
 
 package de.hsos.prog3.gbuccell.ab02.ui;
 
-import de.hsos.prog3.gbuccell.ab02.logik.Simulator;
 import de.hsos.prog3.gbuccell.ab02.util.Interaktionsbrett;
 
 public class SpielfeldDarstellung {

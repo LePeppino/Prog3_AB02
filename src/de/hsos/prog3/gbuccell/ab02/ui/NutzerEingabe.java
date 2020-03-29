@@ -39,10 +39,14 @@ public class NutzerEingabe {
     }
 
     public int anzahlDerSimulationsschritte(){
-        System.out.print("Anzahl der zu simulierenden Schritte eingeben (min. 1, max. 50): ");
+        System.out.print("Anzahl der zu simulierenden Schritte eingeben " +
+                "(max. 20, negative Zahl zum Beenden): ");
         int schritte = io.leseInteger();
-        if(schritte >= 1 && schritte <= 50){
+        if(schritte >= 0 && schritte <= 20){
             return schritte;
+        } else if(schritte < 0){
+            System.out.println("Beende Programm... Tschüss Leben!");
+            return -1;
         }
         System.out.println("Keine gueltige Anzahl!");
         anzahlDerSimulationsschritte();

@@ -9,7 +9,7 @@ package de.hsos.prog3.gbuccell.ab02.logik;
 public interface Simulation {
 
     void berechneAnfangsGeneration(int anzahlZellen, int wahrscheinlichkeitBesiedlung);
-    void berechneFolgeGeneration(int berechnungsschritte);
+    void berechneFolgeGeneration(int berechnungsschritte) throws InterruptedException;
     void anmeldenFuerAktualisierungBeiAenderung(BeiAenderung beiAenderung);
 
 }

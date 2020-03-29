@@ -15,10 +15,6 @@ public class Simulator implements Simulation {
 
     private BeiAenderung beiAenderung;
 
-    public int getAnzahlFelder(){
-        return anzahlFelder;
-    }
-
 //Methoden
     @Override
     public void berechneAnfangsGeneration(int anzahlZellen, int wahrscheinlichkeitBesiedlung){
@@ -39,8 +35,10 @@ public class Simulator implements Simulation {
     }
 
     @Override
-    public void berechneFolgeGeneration(int berechnungsschritte){
-        //beiAenderung.aktualisiere();
+    public void berechneFolgeGeneration(int berechnungsschritte) throws InterruptedException {
+
+        Thread.sleep(150);
+        beiAenderung.aktualisiere(spielfeld);
     }
 
     @Override

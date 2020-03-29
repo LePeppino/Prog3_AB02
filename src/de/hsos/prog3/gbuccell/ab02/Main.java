@@ -10,11 +10,13 @@ import de.hsos.prog3.gbuccell.ab02.ui.Steuerung;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Steuerung steuerung = new Steuerung();
 
+
         steuerung.startDesSpiels();
+
 
 
     }
