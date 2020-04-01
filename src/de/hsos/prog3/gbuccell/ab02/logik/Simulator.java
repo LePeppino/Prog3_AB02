@@ -63,7 +63,7 @@ public class Simulator implements Simulation {
                     }
                 }
             }
-            Thread.sleep(300);
+            Thread.sleep(500);
             if(beiAenderung != null){
                 beiAenderung.aktualisiere(spielfeld);
             }
